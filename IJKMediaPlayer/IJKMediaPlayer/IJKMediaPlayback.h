@@ -84,7 +84,8 @@ typedef NS_ENUM(NSInteger, IJKMPMovieTimeOption) {
 
 /************play progress***********/
 //current playback time
-@property(nonatomic, readonly)  NSTimeInterval currentPlaybackTime;
+//@property(nonatomic, readonly)  NSTimeInterval currentPlaybackTime;
+@property(nonatomic)  NSTimeInterval currentPlaybackTime;
 //total duration of the source video
 @property(nonatomic, readonly)  NSTimeInterval duration;
 //buffering duration

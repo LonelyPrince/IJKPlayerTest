@@ -25,7 +25,7 @@
 
 @implementation IJKFFOptions {
     NSMutableDictionary *_optionCategories;
-
+    
     NSMutableDictionary *_playerOptions;
     NSMutableDictionary *_formatOptions;
     NSMutableDictionary *_codecOptions;
@@ -38,11 +38,11 @@
 + (IJKFFOptions *)optionsByDefault
 {
     IJKFFOptions *options = [[IJKFFOptions alloc] init];
-
+    
     [options setPlayerOptionIntValue:30     forKey:@"max-fps"];
     [options setPlayerOptionIntValue:1      forKey:@"framedrop"];
     [options setPlayerOptionIntValue:3      forKey:@"video-pictq-size"];
-    [options setPlayerOptionIntValue:0      forKey:@"videotoolbox"];
+    [options setPlayerOptionIntValue:1      forKey:@"videotoolbox"];
     [options setPlayerOptionIntValue:960    forKey:@"videotoolbox-max-frame-width"];
     //缓冲区大小1M
     [options setPlayerOptionIntValue:1024000 forKey:@"max-buffer-size"];
@@ -58,7 +58,7 @@
     //[options setFormatOptionValue:@"Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_3_2 like Mac OS X; en-us)"          forKey:@"user-agent"];
     //[options setFormatOptionValue:@"ijkplayer"          forKey:@"user-agent"];
     options.showHudView   = NO;
-
+    
     return options;
 }
 
@@ -71,7 +71,7 @@
         _codecOptions       = [[NSMutableDictionary alloc] init];
         _swsOptions         = [[NSMutableDictionary alloc] init];
         _swrOptions         = [[NSMutableDictionary alloc] init];
-
+        
         _optionCategories   = [[NSMutableDictionary alloc] init];
         _optionCategories[@(IJKMP_OPT_CATEGORY_PLAYER)] = _playerOptions;
         _optionCategories[@(IJKMP_OPT_CATEGORY_FORMAT)] = _formatOptions;
@@ -112,7 +112,7 @@
 {
     if (!key)
         return;
-
+    
     NSMutableDictionary *options = [_optionCategories objectForKey:@(category)];
     if (options) {
         if (value) {
@@ -129,7 +129,7 @@
 {
     if (!key)
         return;
-
+    
     NSMutableDictionary *options = [_optionCategories objectForKey:@(category)];
     if (options) {
         [options setObject:@(value) forKey:key];
